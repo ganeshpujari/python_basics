@@ -33,8 +33,8 @@ class MyClass():
     def my_func(self):
         print("This is class method")
 
-obj=MyClass()#Object creation
-obj.my_func()#method call
+my_class=MyClass()#Object creation
+my_class.my_func()#method call
 
 #Single Inheritance
 
@@ -46,10 +46,10 @@ class Derived(Base):
     def my_function(self):
         print("Derived Class method")
 
-d=Derived()
-d.my_function()#Derived Class method
-b=Base()
-b.my_function()#Base Class Function
+derived=Derived()
+derived.my_function()#Derived Class method
+base=Base()
+base.my_function()#Base Class Function
 
 #Multi-level Inheritance
 
@@ -61,17 +61,17 @@ class Derived(Base):
     def my_function(self):
         print("Derived Class method")
 
-class Chield(Derived):
+class Child(Derived):
     def my_function(self):
         print("Chield Class method")
 
 
-d=Derived()
-d.my_function()#Derived Class method
-b=Base()
-b.my_function()#Base Class Function
-c=Chield()
-c.my_function()#Chield Class method
+derived=Derived()
+derived.my_function()#Derived Class method
+base=Base()
+base.my_function()#Base Class Function
+child=Child()
+child.my_function()#Chield Class method
 
 #Multiple Inheritance
 
@@ -89,8 +89,8 @@ class Chield(Derived,Base):
 
 
 d=Derived()
-d.my_function()#Derived Class method
-b=Base()
-b.my_function()#Base Class Function
-c=Chield()
-c.my_function()#Chield Class method
+derived.my_function()#Derived Class method
+base=Base()
+base.my_function()#Base Class Function
+child=Chield()
+child.my_function()#Chield Class method
