@@ -7,9 +7,11 @@ print(d)#{'a': 'A', 'b': 'B'}
 print(d['a'])#A
 
 #add element in d
+
 d['c']="C"
 print (d)#{'a': 'A', 'b': 'B', 'c': 'C'}
-
+d.update({'d':"D"})
+print (d)#{'a': 'A', 'b': 'B', 'c': 'C'}
 #Get sorthed keys from d
 print(sorted(d))#['a', 'b', 'c']
 

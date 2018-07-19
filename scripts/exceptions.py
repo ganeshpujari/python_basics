@@ -1,21 +1,21 @@
 #Try except
-class B(Exception):
+class Class1(Exception):
     pass
 
-class C(B):
+class Class2(Class1):
     pass
 
-class D(C):
+class Class3(Class2):
     pass
 
-for cls in [B, C, D]:
+for cls in [Class1, Class2, Class3]:
     try:
         raise cls()
-    except D:
+    except Class1:
         print("D")
-    except C:
+    except Class2:
         print("C")
-    except B:
+    except Class3:
         print("B")
 
 
@@ -57,4 +57,4 @@ try:
 except ZeroDivisionError:
     print("Exceptions")
 finally:
-    print("if exceptione comes or not this block garanty to exicute")
+    print("if exception comes or not this block guaranty to execute")
