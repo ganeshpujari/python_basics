@@ -8,21 +8,20 @@ When no element in generator object it raise StopIterationException.
 
 '''
 
-def reverse(data):
-    for index in range(len(data)-1,-1,-1):
+def reverse_data(data):
+    last_index=len(data)-1
+    for index in range(last_index,-1,-1):
         yield data[index]
 
 
-rev=reverse("Ganesh")
-print(type(rev))#<class 'generator'>
-print(rev.__next__())#h
-print(rev.__next__())#s
-print(rev.__next__())#e
-print(rev.__next__())#n
-print(rev.__next__())#a
-print(rev.__next__())#G
-# print(rev.__next__())#StopIteration
-
+rev_data=reverse_data("ganesh")
+print(next(rev_data))
+print(next(rev_data))
+print(next(rev_data))
+print(next(rev_data))
+print(next(rev_data))
+print(next(rev_data))
+# print(next(rev_data))  StopIteration
 
 #Generator Expressions
 '''
@@ -30,10 +29,15 @@ We can create generator with expresion.
 simple replace [] with () in list comprahansions.
 '''
 
-genObj=(i**2 for i in range(5))
-print(genObj.__next__())#0
-print(genObj.__next__())#1
-print(genObj.__next__())#4
-print(genObj.__next__())#9
-print(genObj.__next__())#16
+gen_obj=(i**2 for i in range(5))
+print(gen_obj.__next__())#0
+print(gen_obj.__next__())#1
+print(gen_obj.__next__())#4
+print(gen_obj.__next__())#9
+print(gen_obj.__next__())#16
 # print(genObj.__next__())#StopIteration
+
+gen_obj=(i**3 for i in range(5))
+
+for data in gen_obj:
+    print(data)
