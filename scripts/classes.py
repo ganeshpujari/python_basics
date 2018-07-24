@@ -1,40 +1,41 @@
 #Scopes and Namespaces Example
 
-def scope_test():
-    def do_local():
-        spam = "local spam"
+def scope_demonstration():
 
-    def do_nonlocal():
-        nonlocal spam
-        spam = "nonlocal spam"
+    def local():
+        var = "I am local"
 
-    def do_global():
-        global spam
-        spam = "global spam"
+    def non_local():
+        nonlocal var
+        var = "I am nonlocal "
 
-    spam = "test spam"
-    do_local()
-    print("After local assignment:", spam)#After local assignment: test spam
-    do_nonlocal()
-    print("After nonlocal assignment:", spam)#After nonlocal assignment: nonlocal spam
-    do_global()
-    print("After global assignment:", spam)#After global assignment: nonlocal spam
+    def i_am_global():
+        global var
+        var = "I am global"
 
-scope_test()
-print("In global scope:", spam)#In global scope: global spam
+    var = "I am first"
+    local()
+    print("After local assignment:", var)#After local assignment: I am first
+    non_local()
+    print("After nonlocal assignment:", var)#After nonlocal assignment: I am nonlocal
+    i_am_global()
+    print("After global assignment:", var)#After global assignment: I am nonlocal
+
+scope_demonstration()
+print("In global scope:", var)#In global scope: I am global
 
 
 #Class example
 
 class MyClass():
     def __init__(self):
-        print("This magic method invoked on object creations.")
+        print("This is same as constreuctor ")
 
-    def my_func(self):
-        print("This is class method")
+    def func(self):
+        print("This is member function")
 
 my_class=MyClass()#Object creation
-my_class.my_func()#method call
+my_class.func()#method call
 
 #Single Inheritance
 
