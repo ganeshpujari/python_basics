@@ -1,34 +1,38 @@
 import pymysql.cursors
 
+
 def db_connection():
     connection = pymysql.connect(host='127.0.0.1',
                                  user='root',
                                  password='root',
                                  db='mysql',
                                  charset='utf8mb4',
-                                 cursorclass=pymysql.cursors.DictCursor)
+                                 cursorclass=pymysql.cursors.DictCursor
+                                 )
 
     print("connect successful!!")
 
     connection.close()
 db_connection()
 
+
 class DBManager(object):
 
-    def __init__(self, host, user, password,db ):
-        self._host=host
-        self._user=user
-        self._password=password
-        self._db=db
+    def __init__(self, host, user, password, db):
+        self._host = host
+        self._user = user
+        self._password = password
+        self._db = db
         self.connection = None
 
     def __enter__(self):
         self.connection = pymysql.connect(host=self._host,
-                                     user=self._user,
-                                     password=self._password,
-                                     db=self._db,
-                                     charset='utf8mb4',
-                                     cursorclass=pymysql.cursors.DictCursor)
+                                             user=self._user,
+                                             password=self._password,
+                                             db=self._db,
+                                             charset='utf8mb4',
+                                             cursorclass=pymysql.cursors.DictCursor
+                                          )
         if self.connection:
             print("connected .......!")
         else:
@@ -43,5 +47,7 @@ class DBManager(object):
 
 # obj=DBManager('127.0.0.1','root','root','mysql')
 
-with DBManager('127.0.0.1','root','root','mysql') as d_b_manager:
+with DBManager('127.0.0.1', 'root', 'root', 'mysql') as d_b_manager:
     print("connection call")
+
+print(">>>>>>")
