@@ -1,21 +1,6 @@
 import pymysql.cursors
 
 
-def db_connection():
-    connection = pymysql.connect(host='127.0.0.1',
-                                 user='root',
-                                 password='root',
-                                 db='mysql',
-                                 charset='utf8mb4',
-                                 cursorclass=pymysql.cursors.DictCursor
-                                 )
-
-    print("connect successful!!")
-
-    connection.close()
-db_connection()
-
-
 class DBManager(object):
 
     def __init__(self, host, user, password, db):
@@ -45,7 +30,6 @@ class DBManager(object):
         else:
             print("Connection does not exist")
 
-# obj=DBManager('127.0.0.1','root','root','mysql')
 
 with DBManager('127.0.0.1', 'root', 'root', 'mysql') as d_b_manager:
     print("connection call")
