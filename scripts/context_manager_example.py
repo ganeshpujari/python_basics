@@ -11,13 +11,14 @@ class DBManager(object):
         self.connection = None
 
     def __enter__(self):
-        self.connection = pymysql.connect(host=self._host,
-                                             user=self._user,
-                                             password=self._password,
-                                             db=self._db,
-                                             charset='utf8mb4',
-                                             cursorclass=pymysql.cursors.DictCursor
-                                          )
+        self.connection = pymysql.connect(
+            host=self._host,
+            user=self._user,
+            password=self._password,
+            db=self._db,
+            charset='utf8mb4',
+            cursorclass=pymysql.cursors.DictCursor)
+
         if self.connection:
             print("connected .......!")
         else:
@@ -33,5 +34,3 @@ class DBManager(object):
 
 with DBManager('127.0.0.1', 'root', 'root', 'mysql') as d_b_manager:
     print("connection call")
-
-print(">>>>>>")
