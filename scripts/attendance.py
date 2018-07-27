@@ -63,10 +63,17 @@ class AttendanceManagement():
             print("you have to seat {hours} hours and {minutes} minutes for next {days}"
                   " days ".format(hours=hours, minutes=minutes, days=available_working_days))
 
-attendance_management=AttendanceManagement()
-average_attendace=input("Entaer your average attendance in 'hh:mm:ss' format. E.g. 8:00:00")
-present_days=int(input("Enter your present days. E.g. 19"))
+if __name__ == '__main__':
+    while 1:
+        attendance_management = AttendanceManagement()
+        try:
+            average_attendace = input("Entaer your average attendance in 'hh:mm:ss' format. E.g. 8:00:00")
+            present_days = int(input("Enter your present days. E.g. 19"))
+        except:
+            continue
 
-available_working_days=attendance_management.get_total_working_days_remaining(
-    attendance_management.current_month, attendance_management.current_year, present_days)
-attendance_management.get_avarage_working_target(average_attendace,available_working_days, present_days)
+        available_working_days = attendance_management.get_total_working_days_remaining(
+            attendance_management.current_month, attendance_management.current_year, present_days)
+        attendance_management.get_avarage_working_target(average_attendace, available_working_days, present_days)
+
+
