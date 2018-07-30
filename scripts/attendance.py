@@ -72,7 +72,9 @@ class AttendanceManagement():
         :param present_days:
         :return:
         """
-        if average_attendace == '09:00:00':
+        if average_attendace == '09:00:00' or\
+            average_attendace.startswith('09:00:') or\
+                average_attendace.startswith('9:00:'):
             return 9, 00, available_working_days
         avrage_working_time_list = average_attendace.split(":")
         average_attendace_hours = int(avrage_working_time_list[0])
@@ -105,6 +107,11 @@ class AttendanceManagement():
 
 
 def is_validate_time_format(average_attendace):
+    """
+    This will check is user entered time is valid or not
+    :param average_attendace:
+    :return:
+    """
     timeformat = "%H:%M:%S"
     try:
         valid_time = datetime.strptime(average_attendace, timeformat)
@@ -114,6 +121,12 @@ def is_validate_time_format(average_attendace):
 
 
 def is_valid_integer(number, error_message):
+    """
+    This will check is user entered value is valid integer or not
+    :param number:
+    :param error_message:
+    :return:
+    """
     try:
         valid_number = input(number)
     except ValueError:
