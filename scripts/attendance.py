@@ -4,7 +4,10 @@ DAILY_WORKING_HOURS = 9
 
 
 class AttendanceManagement():
-
+    """
+        Description : AttendanceManagement class to check avg target
+        attendance for remaining days.
+        """
     def __init__(self):
         self.today = datetime.now()
         self.current_day = self.today.day
@@ -80,6 +83,7 @@ class AttendanceManagement():
         average_attendace_hours = int(avrage_working_time_list[0])
         average_attendace_minutes = int(avrage_working_time_list[1])
         if average_attendace_hours < DAILY_WORKING_HOURS:
+            #calculating if avg working time less than avg target time.
             tt = timedelta(hours=DAILY_WORKING_HOURS) - \
                  (timedelta(hours=average_attendace_hours) +
                   timedelta(minutes=average_attendace_minutes))
@@ -90,6 +94,7 @@ class AttendanceManagement():
             hours, minutes = result_list[0], result_list[1][:2]
             return hours, minutes, available_working_days
         else:
+            # calculating if avg working time greter than avg target time.
             tt = (timedelta(hours=average_attendace_hours) +
                   timedelta(minutes=int(average_attendace_minutes))) - \
                  timedelta(hours=DAILY_WORKING_HOURS)
@@ -106,7 +111,7 @@ class AttendanceManagement():
             return hours, minutes, available_working_days
 
 
-def is_validate_time_format(average_attendace):
+def is_valid_time_format(average_attendace):
     """
     This will check is user entered time is valid or not
     :param average_attendace:
@@ -138,7 +143,7 @@ def attendance():
     attendance_management = AttendanceManagement()
     average_attendace = input("Entaer your average attendance in 'hh:mm:ss'"
                               " format. E.g. 8:00:00  ")
-    is_validate_time_format(average_attendace)
+    is_valid_time_format(average_attendace)
 
     present_days = int(input("Enter your present days. E.g. 19  "))
     is_valid_integer(present_days, "Please neter valid INTEGER value for"
