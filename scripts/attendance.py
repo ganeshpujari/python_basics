@@ -24,7 +24,10 @@ class AttendanceManagement():
 
         str_time = str(time)
         time_list = str_time.split(":")
-        hours, minutes = int(time_list[0]), int(time_list[1])
+        try:
+            hours, minutes = int(time_list[0]), int(time_list[1])
+        except IndexError:
+            raise Exception("Invalid time format for converting time to minutes")
         ret_minutes = (hours * 60) + minutes
         return ret_minutes
 
