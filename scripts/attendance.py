@@ -60,9 +60,12 @@ class AttendanceManagement():
         :return: total_working_day_remaining
         """
 
+        # monthlen will return number of days in month
         total_days_in_month = monthlen(current_year, curent_month)
+        # this will return month days list.
         days = Calendar().monthdayscalendar(current_year, curent_month)
         saturady_sunday_count = self.get_saturday_sunday_count(days)
+        # adding holidays in sat-sunday count.
         saturady_sunday_count += number_of_holiday_remaining
         total_working_day_remaining = \
             (total_days_in_month - (saturady_sunday_count + present_days))
@@ -122,6 +125,7 @@ def is_valid_time_format(average_attendace):
     """
     timeformat = "%H:%M:%S"
     try:
+        # check is valid time format
         valid_time = datetime.strptime(average_attendace, timeformat)
     except ValueError:
         print("Please enter average present time in hh:mm:ss format")
@@ -136,6 +140,7 @@ def is_valid_integer(number, error_message):
     :return:
     """
     try:
+        # check is user input valid integer or not
         valid_number = input(number)
     except ValueError:
         print(error_message)
@@ -144,14 +149,17 @@ def is_valid_integer(number, error_message):
 
 def attendance():
     attendance_management = AttendanceManagement()
+    # accept average attendace from user.
     average_attendace = input("Entaer your average attendance in 'hh:mm:ss'"
                               " format. E.g. 8:00:00  ")
     is_valid_time_format(average_attendace)
 
+    # accept present days from user.
     present_days = int(input("Enter your present days. E.g. 19  "))
     is_valid_integer(present_days, "Please neter valid INTEGER value for"
                                    " present days")
 
+    # accept number of leaves from user
     leaves = int(input("Enter your leaves taken in current month. E.g. 2  "))
     is_valid_integer(present_days, "Please neter valid INTEGER value for"
                                    " leaves ")
