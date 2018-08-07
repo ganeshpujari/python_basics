@@ -16,9 +16,9 @@ add=sum(10,10)
 print(add)#20
 
 add=sum(10,7)
-print(add)#None
+print(add)# None
 
-#Class decorator example
+# Class decorator example
 
 class IsEvenNumbers(object):
 
@@ -35,7 +35,7 @@ def sum(no1, no2):
     return no1+no2
 
 add=sum(20,20)
-print(add)#40
+print(add)# 40
 
 add=sum(31,20)
-print(add)#None
+print(add)# None
