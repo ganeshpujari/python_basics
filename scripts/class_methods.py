@@ -28,7 +28,7 @@ MethodTypes.class_method()
 MethodTypes.static_method()
 method_types.static_method()
 
-#Singleton Class:- Restrict to only one copy of the instance
+# Singleton Class:- Restrict to only one copy of the instance
 class SingletonClass(object):
     _instance = None
     def __new__(cls,*args, **kwargs):
