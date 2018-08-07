@@ -1,4 +1,8 @@
-
+# Method resolution rule is left to right.
+'''
+    On menth call, first look in same class
+    if not exist then look for first inhetioted class.
+'''
 
 class ClassOne:
 
@@ -17,7 +21,7 @@ class ClassThree(ClassOne, ClassTwo):
         print("This is class Three")
 
 class_three=ClassThree()
-class_three.func()#This is classOne
+class_three.func()# This is classOne
 
 class ClassOne():
 
@@ -36,4 +40,4 @@ class ClassThree(ClassTwo, ClassOne):
         print("This is class Three")
 
 class_three=ClassThree()
-class_three.func()#This is classTwo
+class_three.func()# This is classTwo
