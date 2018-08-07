@@ -12,7 +12,7 @@ print(next(name_obj))# n
 print(next(name_obj))# e
 print(next(name_obj))# s
 print(next(name_obj))# h
-# print(next(name_obj))#StopIteration
+# print(next(name_obj))# StopIteration
 
 name="Ganesh"
 name_obj=iter(name)
