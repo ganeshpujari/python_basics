@@ -1,20 +1,18 @@
-#Iterator
+# Iterator
 '''
-
 iter() method return iterable object from any sequence.
 StopIteration exception raised when no more element in object.
-
 '''
 
 name="Ganesh"
 name_obj=iter(name)
-print(next(name_obj))#G
-print(next(name_obj))#a
-print(next(name_obj))#n
-print(next(name_obj))#e
-print(next(name_obj))#s
-print(next(name_obj))#h
-#print(next(name_obj))#StopIteration
+print(next(name_obj))# G
+print(next(name_obj))# a
+print(next(name_obj))# n
+print(next(name_obj))# e
+print(next(name_obj))# s
+print(next(name_obj))# h
+# print(next(name_obj))#StopIteration
 
 name="Ganesh"
 name_obj=iter(name)
@@ -22,7 +20,7 @@ name_obj=iter(name)
 for nm in name_obj:
     print(nm)
 
-#user defined interator
+# user defined interator
 
 class CharatorsFromData():
 
